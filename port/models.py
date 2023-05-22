@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class UserProfile(models.Model): #유저 프로필 데이터 모델
     subject = models.CharField(max_length=200)
     content = models.TextField()
