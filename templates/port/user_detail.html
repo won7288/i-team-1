@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{ user.username }}님의 이력</h1>
+{% for detail in my_details %}
+    <div>
+        <h2>{{ user_detail.project_title }}</h2>
+        <img src="{{ user_detail.project_image.url }}" alt="Project Image">
+        <p>{{ user_detail.content }}</p>
+        <p>Created on: {{ user_detail.create_date }}</p>
+        <p>Question: {{ user_detail.write_question }}</p>
+    </div>
+{% endfor %}
+{% endblock %}

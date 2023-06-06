@@ -1,15 +1,16 @@
 from django.shortcuts import render
 #from django.contrib.auth.decorators import login_required #로그인 데코레이터
 # Create your views here.
-from django.http import HttpResponse
-
+from .models import my_detail
+from .models import user_detail
 
 def index(request):
-    return HttpResponse("안녕하세요 port에 오신것을 환영합니다.")
-
+    return render(request, 'port/main.html')
 
 def my_detail(request):
-    return render(request, 'my_detail.html')
+    detail = my_detail.objects.first()  
+    return render(request, 'port/my_detail.html', {'my_detail': detail})
 
 def user_detail(request):
-    return render(request, 'user_detail.html')
+    detail = user_detail.objects.first()
+    return render(request, 'port/user_detail.html', {'user_detail': detail})

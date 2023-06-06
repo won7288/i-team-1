@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>000님의 이력</h1>
+{% for detail in my_details %}
+    <div>
+        <h2>{{ detail.project_title }}</h2>
+        <img src="{{ detail.project_image.url }}" alt="Project Image">
+        <p>{{ detail.content }}</p>
+        <p>Created on: {{ detail.create_date }}</p>
+    </div>
+{% endfor %}
+{% endblock %}
