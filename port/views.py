@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
+from .forms import PortfolioForm
 #from django.contrib.auth.decorators import login_required #로그인 데코레이터
 # Create your views here.
-from .models import my_detail
+from .models import my_detail, Portfolio
 from .models import user_detail
 
 def index(request):
