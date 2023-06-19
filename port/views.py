@@ -7,7 +7,10 @@ from .models import my_detail, Portfolio
 from .models import user_detail
 
 def index(request):
-    return render(request, 'port/main.html')
+    return render(request, 'common/login.html')
+
+def profile(request):
+    return render(request, 'port/profile.html')
 
 def my_Detail(request): #함수이름과 모델이름 구분해서 짓기
     detail = my_detail.objects.first()  
