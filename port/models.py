@@ -24,3 +24,8 @@ class Portfolio(models.Model):
         ]
     )
     content = models.TextField()
+
+class Profile(models.Model):
+    image = models.ImageField(upload_to='images/')
+    header = models.CharField(max_length=50)
+    career = models.CharField(max_length=500)
