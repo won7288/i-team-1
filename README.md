@@ -11,11 +11,17 @@ Login -> 로그인
 
 
 Message : 
-npm install -g create-react-app
-create-react-app -V
-cd react-app
-create-react-app .
-npm run start
+1. npm install -g create-react-app
+   
+2. create-react-app -V
+  
+3. cd react-app
+
+4. create-react-app .
+
+5. npm run start
+
+
 
 -> App.js 구동
 
