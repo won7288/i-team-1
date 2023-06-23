@@ -1,4 +1,29 @@
 {% extends 'base.html' %}
+
 {% block content %}
-<p>하이</p>
+<h1>{{ user.username }}님의 포트폴리오</h1>
+
+<!-- 프로필 사진 -->
+<img src="{{ user.profile.photo.url }}" alt="프로필 사진">
+
+<!-- 자기소개 -->
+<p>자기소개: {{ profile.header }}</p>
+
+<!--커리어 및 스택-->
+<p>이력 및 경력: {{ profile.career }}</p>
+
+<!-- 프로필 수정 버튼 -->
+<a href="{% url 'port:profile_view' %}" class="btn btn-primary">프로필 수정</a>
+
+<!-- 포트폴리오 작성 버튼 -->
+<a href="{% url 'port:port_view' %}" class="btn btn-primary">포트폴리오 작성</a>
+
+<!-- 포트폴리오 목록 -->
+<h4>포트폴리오</h4>
+<ul>
+  {% for portfolio in user.profile.portfolios.all %}
+  <li>{{ portfolio.title }}</li>
+  {% endfor %}
+</ul>
+
 {% endblock %}
