@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio</title>
+    <style>
+        .portfolio-item {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body> <!--포트폴리오 생성-->
+    <h1>포트폴리오 작성하기</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+
+    <h2>나의 포트폴리오</h2>
+    {% for portfolio in portfolios %}
+        <div class="portfolio-item">
+            <img src="{{ portfolio.image.url }}" alt="Portfolio Image" style="width: 300px; height: 300px;">
+            <h3>제목: {{ portfolio.title }}</h3>
+            <p>난이도: 별 {{ portfolio.rating }}개</p>
+            <p>내용: {{ portfolio.content }}</p>
+        </div>
+    {% empty %}
+        <p>No portfolios available.</p>
+    {% endfor %}
+</body>
+</html>
+{% endblock %}

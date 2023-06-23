@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile Detail</title>
+</head>
+<body> <!--프로필 수정 및 업로드-->
+    <h1>Profile Detail</h1>
+    <hr>
+
+    <!-- Display the image and headers -->
+    {% if profile %}
+        <img src="{{ profile.image.url }}" alt="Profile Image" width="200">
+        <h3>자기소개: {{ profile.header }}</h3>
+        <h3>이력 및 경력: {{ profile.career }}</h3>
+    {% endif %}
+
+    <!-- Form to update profile -->
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+{% endblock %}
